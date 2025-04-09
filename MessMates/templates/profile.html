@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Profile</h1>
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Mess Code:</strong> {{ user.mess_code }}</p>
+        <p><strong>Total Meals:</strong> {{ stats.total_meal }}</p>
+        <p><strong>Total Deposit:</strong> {{ stats.total_deposit }}</p>
+        <p><strong>Cost:</strong> {{ stats.cost }}</p>
+        <p><strong>Due:</strong> {{ stats.due }}</p>
+
+        <br>
+        <a href="/home">Home</a> |
+        <a href="/logout">Logout</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+h1, h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #4CAF50;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #00796B;
+}
+
+/* Links */
+a {
+    color: #00796B;
+    text-decoration: none;
+    padding: 5px;
+}
+
+a:hover {
+    color: #004D40;
+}
+
+/* Form Elements */
+form {
+    margin-top: 20px;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="number"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #388E3C;
+}
+
+/* Textarea Styling */
+textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+/* Small Text */
+p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* Horizontal Rule */
+hr {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+/* Login and Register Specific */
+form p {
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Profile Page */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.profile-info p {
+    margin: 5px 0;
+}
+
+/* Flexbox for meal checkboxes */
+form label {
+    display: block;
+    margin: 5px 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    input[type="text"], input[type="password"], input[type="email"], input[type="number"], textarea {
+        width: 100%;
+    }
+}
+

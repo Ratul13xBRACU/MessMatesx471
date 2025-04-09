@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        
+        <h2>Today's Meal Summary</h2>
+        <p>Today's Date: {{ today }}</p>
+        <p>Breakfast: {{ today_meals.breakfast if today_meals else 'N/A' }}</p>
+        <p>Lunch: {{ today_meals.lunch if today_meals else 'N/A' }}</p>
+        <p>Dinner: {{ today_meals.dinner if today_meals else 'N/A' }}</p>
+
+        <hr>
+
+        <h2>Monthly Stats</h2>
+        <p>Total Meals: {{ monthly.total_meal if monthly else 'N/A' }}</p>
+        <p>Meal Rate: {{ monthly.meal_rate if monthly else 'N/A' }}</p>
+        <p>Total Meal Cost: {{ monthly.total_meal_cost if monthly else 'N/A' }}</p>
+        <p>Total Deposit: {{ monthly.total_deposit if monthly else 'N/A' }}</p>
+        <p>Shared Cost: {{ monthly.total_shared_cost if monthly else 'N/A' }}</p>
+        <p>Balance: {{ monthly.mess_balance if monthly else 'N/A' }}</p>
+
+        <hr>
+
+        <h2>Submit Daily Bazaar & Shared Cost</h2>
+        <form method="POST" action="/admin">
+            <input type="number" name="total_bazaar" placeholder="Total Bazaar" required>
+            <input type="number" name="shared_cost" placeholder="Shared Cost" required>
+            <textarea name="remarks" placeholder="Remarks (optional)"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+
+        <br>
+        <a href="/home">Home</a> |
+        <a href="/logout">Logout</a>
+    </div>
+</body>
+</html>
