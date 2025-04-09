@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-header">
+                <img src="{{ url_for('static', filename='uploads/MessMatesx.png') }}" alt="MessMates" class="corner-logo">
+            </div>
+            <!-- <h2>MessMates</h2> -->
+            <ul>
+                <li><a href="/home">My Space</a></li>
+                <li><a href="/admin">Admin</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="card">
+                <h2>My Profile</h2>
+                <p><strong>Name:</strong> {{ user.username }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Phone Number:</strong> {{ user.phone_number if user.phone_number else 'N/A' }}</p>
+                <p><strong>Mess Code:</strong> {{ user.mess_code }}</p>
+                <p><strong>Address:</strong> {{ user.address if user.address else 'N/A' }}</p>
+                <p><strong>Gender:</strong> {{ user.gender if user.gender else 'N/A' }}</p>
+                <p><strong>Facebook ID:</strong> {{ user.facebook_id if user.facebook_id else 'N/A' }}</p>
+            </div>
+
+            <div class="card">
+                <h2>My Stats</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>Total Meals</h3>
+                        <p>{{ stats.total_meal }}</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Total Deposit</h3>
+                        <p>{{ stats.total_deposit }}৳</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Total Cost</h3>
+                        <p>{{ stats.cost }}৳</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Due</h3>
+                        <p>{{ stats.due }}৳</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-header">
+            <img src="{{ url_for('static', filename='uploads/MessMatesx.png') }}" alt="MessMates" class="corner-logo">
+        </div>
+        <div class="card" style="max-width: 400px; margin: 50px auto;">
+            <h1 style="text-align: center;">Register</h1>
+            <form method="POST" action="/register">
+                <input type="text" name="username" placeholder="username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="mess_code" placeholder="Mess Code" required>
+                <input type="password" name="password" placeholder="Password" required>
+                
+                </select>
+                <label style="display: block; margin-bottom: 15px;">
+                    <input type="checkbox" name="is_admin"> Register as Admin
+                </label>
+                <button type="submit" style="width: 100%;">Register</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px;">Already registered? <a href="/login">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>

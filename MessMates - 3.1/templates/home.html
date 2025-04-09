@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Space</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-header">
+                    <img src="{{ url_for('static', filename='uploads/MessMatesx.png') }}" alt="MessMates" class="corner-logo">
+                </div>
+                <!-- <h2>MessMates</h2> -->
+                <p>Welcome, {{ user.username }}</p>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-title">MY SPACE</li>
+                <li><a href="/home" class="active"><i class="icon-home"></i> My Space</a></li>
+                
+                
+                <li class="menu-title">ADMIN</li>
+                <li><a href="/admin"><i class="icon-admin"></i> Admin Dashboard</a></li>
+                
+                <li class="menu-title">ACCOUNT</li>
+                <li><a href="/profile"><i class="icon-profile"></i> My Profile</a></li>
+                <li><a href="/logout"><i class="icon-logout"></i> Logout</a></li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <p>Current Month: {{ current_month }}</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="page-header">
+                <h1>My Space</h1>
+                <p>Manage your meals and deposits</p>
+            </div>
+
+            <div class="card">
+                <h2><i class="icon-meal"></i> Today's Meal Request</h2>
+                <form method="POST" action="/home">
+                    <div class="checkbox-group">
+                        <label class="meal-option">
+                            <input type="checkbox" name="breakfast">
+                            <span class="checkmark"></span>
+                            Breakfast
+                        </label>
+                        <label class="meal-option">
+                            <input type="checkbox" name="lunch">
+                            <span class="checkmark"></span>
+                            Lunch
+                        </label>
+                        <label class="meal-option">
+                            <input type="checkbox" name="dinner">
+                            <span class="checkmark"></span>
+                            Dinner
+                        </label>
+                    </div>
+                    <button type="submit" name="action" value="meal" class="btn-confirm">
+                        <i class="icon-confirm"></i> Confirm Meals
+                    </button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2><i class="icon-deposit"></i> Make a Deposit</h2>
+                <form method="POST" action="/home">
+                    <div class="form-group">
+                        <label for="amount">Amount (৳)</label>
+                        <input type="number" name="amount" id="amount" placeholder="Enter amount" required>
+                    </div>
+                    <button type="submit" name="action" value="deposit" class="btn-primary">
+                        <i class="icon-add"></i> Add Deposit
+                    </button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
