@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-header">
+                <img src="{{ url_for('static', filename='uploads/MessMatesx.png') }}" alt="MessMates" class="corner-logo">
+            </div>
+            <ul>
+                <li><a href="/home">My Space</a></li>
+                <li><a href="/admin">Admin Dashboard</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="card">
+                <h2>Mess Admin Space</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>Mess Balance</h3>
+                        <p>{{ monthly.mess_balance if monthly else '0.00' }}৳</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Total Deposit</h3>
+                        <p>{{ monthly.total_deposit if monthly else '0.00' }}৳</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Total Meal</h3>
+                        <p>{{ monthly.total_meal if monthly else '0.00' }}</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Total Meal Cost</h3>
+                        <p>{{ monthly.total_meal_cost if monthly else '0.00' }}৳</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Meal Rate</h3>
+                        <p>{{ monthly.meal_rate if monthly else '0.00' }}৳</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Shared Cost</h3>
+                        <p>{{ monthly.total_shared_cost if monthly else '0.00' }}৳</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Today's Meal Summary</h2>
+                <p><strong>Date:</strong> {{ today }}</p>
+                <p><strong>Breakfast:</strong> {{ today_meals.breakfast if today_meals else '0' }}</p>
+                <p><strong>Lunch:</strong> {{ today_meals.lunch if today_meals else '0' }}</p>
+                <p><strong>Dinner:</strong> {{ today_meals.dinner if today_meals else '0' }}</p>
+            </div>
+
+            <div class="card">
+                <h2>Submit Daily Bazaar & Shared Cost</h2>
+                <form method="POST" action="/admin">
+                    <input type="number" name="total_bazaar" placeholder="Total Bazaar" required>
+                    <input type="number" name="shared_cost" placeholder="Shared Cost" required>
+                    <textarea name="remarks" placeholder="Remarks (optional)"></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>               
+        </div>
+    </div>
+</body>
+</html>
+
+           

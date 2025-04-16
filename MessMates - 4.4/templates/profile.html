@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-header">
+                <img src="{{ url_for('static', filename='uploads/MessMatesx.png') }}" alt="MessMates" class="corner-logo">
+            </div>
+            <!-- <h2>MessMates</h2> -->
+            <ul>
+                <li><a href="/home">My Space</a></li>
+                <li><a href="/admin">Admin</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="card">
+                <h2>My Profile</h2>
+                <p><strong>Name:</strong> {{ user.username }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Phone Number:</strong> {{ user.phone }}</p>
+                {% if error %}
+                    <p style="color: red;">{{ error }}</p>
+                {% endif %}
+
+                {% if not user.mess_code %}
+                <form action="/join-mess" method="POST">
+                    <label for="mess_code">Enter Mess Code to Join:</label>
+                    <input type="text" name="mess_code" required>
+                    <button type="submit">Join Mess</button>
+                </form>
+                {% else %}
+                    <p><strong>Mess Code:</strong> {{ user.mess_code }}</p>
+                    <form action="/leave-mess" method="POST" style="display:inline;">
+                        <button type="submit" onclick="return confirm('Are you sure you want to leave the mess?');">Leave Mess</button>
+                    </form>
+                {% endif %}
+
+                
+                <!-- <p><strong>Address:</strong> {{ user.address if user.address else 'N/A' }}</p>
+                <p><strong>Gender:</strong> {{ user.gender if user.gender else 'N/A' }}</p>
+                <p><strong>Facebook ID:</strong> {{ user.facebook_id if user.facebook_id else 'N/A' }}</p> -->
+            
+                <!-- Change Password Button -->
+                <div style="margin-top: 20px;">
+                    <li><a href="/change-password">Change Password</a></li>
+
+                </div>
+            </div>
+            
+
+            <div class="card">
+                <h2>My Stats</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>Total Meals</h3>
+                        <p>{{ stats.total_meal }}</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Total Deposit</h3>
+                        <p>{{ stats.total_deposit }}৳</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Total Cost</h3>
+                        <p>{{ stats.cost }}৳</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Due</h3>
+                        <p>{{ stats.due }}৳</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const status = urlParams.get('status');
+    
+        if (status === 'invalid') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Invalid Mess Code',
+                text: 'The mess code you entered does not exist. Please try again.',
+            });
+        } else if (status === 'joined') {
+            Swal.fire({
+                icon: 'success',
+                title: 'Joined Mess Successfully!',
+                text: 'You are now part of a mess.',
+            });
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- <style>
+        body {
+            background-image: url('/static/uploads/MessMates.png'); 
+        }
+    </style> -->
+</head>
+<body>
+    <div class="container">
+        <div class="logo-header">
+            <!-- <img src="{{ url_for('static', filename='uploads/MessMatesx.png') }}" alt="MessMates" class="corner-logo"> -->
+        </div>
+        <div class="card" style="max-width: 400px; margin: 50px auto; background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px;">
+            <h1 style="text-align: center;">MessMates Login</h1>
+            <form method="POST" action="/login">
+                <input type="text" name="username" placeholder="Enter username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit" style="width: 100%;">Login</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px;">New Here? <a href="/register">REGISTER</a></p>
+        </div>
+    </div>
+</body>
+</html>
